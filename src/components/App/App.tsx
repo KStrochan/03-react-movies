@@ -50,6 +50,7 @@ export default function App() {
     setMovies([]);
     setPage(1);
     setShowBtn(false);
+    setIsError(false); // ✨ ФІКС: Скидаємо стан помилки при новому пошуку за вимогами ментора
   };
 
   const handleLoadMore = () => {
@@ -71,7 +72,7 @@ export default function App() {
       {isError && <ErrorMessage />}
       
       {movies.length > 0 && (
-        <MovieGrid movies={movies} onMovieClick={openModal} />
+        <MovieGrid movies={movies} onSelect={openModal} /> // ✨ ФІКС: Перейменовано проп з onMovieClick на onSelect відповідно до ТЗ
       )}
       
       {isLoading && <Loader />}

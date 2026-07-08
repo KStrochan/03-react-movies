@@ -3,14 +3,14 @@ import css from './MovieGrid.module.css';
 
 interface MovieGridProps {
   movies: Movie[];
-  onMovieClick: (movie: Movie) => void; // Переконайся, що назва збігається з App.tsx
+  onSelect: (movie: Movie) => void; // Перейменовано з onMovieClick за вимогами ТЗ
 }
 
-export default function MovieGrid({ movies, onMovieClick }: MovieGridProps) {
+export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
   return (
     <ul className={css.grid}>
       {movies.map((movie) => (
-        <li key={movie.id} onClick={() => onMovieClick(movie)}>
+        <li key={movie.id} onClick={() => onSelect(movie)}>
           <div className={css.card}>
             <img
               className={css.image}
